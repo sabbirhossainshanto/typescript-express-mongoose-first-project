@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start:prod": "node ./dist/server.js",
-    "dev":"ts-node-dev --respawn --transpile-only ./src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only ./src/server.ts",
     "lint": "eslint src --ignore-path .eslintignore --ext .ts",
     "lint:fix": "npx eslint src --fix",
     "prettier": "prettier --ignore-path .gitignore --write \"./src/**/*.+(js|ts|json)\"",
@@ -17,11 +17,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "http-status": "^1.7.4",
     "mongoose": "^8.3.5",
-    "ts-node-dev": "^2.0.0"
+    "ts-node-dev": "^2.0.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

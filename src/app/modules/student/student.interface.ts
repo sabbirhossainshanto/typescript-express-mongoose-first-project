@@ -1,3 +1,5 @@
+import { Model, Types } from 'mongoose';
+
 export type TGuardian = {
   fatherName: string;
   fatherOccupation: string;
@@ -9,7 +11,7 @@ export type TGuardian = {
 
 export type TUserName = {
   firstName: string;
-  middleName: string;
+  middleName?: string;
   lastName: string;
 };
 export type TLocalGuardian = {
@@ -20,8 +22,9 @@ export type TLocalGuardian = {
 };
 export type TStudent = {
   id: string;
+  user: Types.ObjectId;
   name: TUserName;
-  gender: 'male' | 'female';
+  gender: 'male' | 'female' | 'other';
   dateOfBirth?: string;
   email: string;
   contactNo: string;
@@ -31,6 +34,18 @@ export type TStudent = {
   permanentAddress: string;
   guardian: TGuardian;
   localGuardian: TLocalGuardian;
+  admissionSemester:Types.ObjectId;
   profileImg?: string;
-  isActive: 'active' | 'inActive';
+  isDeleted: boolean;
 };
+
+export type TStudentMethods = {
+  // eslint-disable-next-line no-unused-vars
+  isUserExist(id: string): Promise<TStudent | null>;
+};
+
+export type StudentModel = Model<
+  TStudent,
+  Record<string, never>,
+  TStudentMethods
+>;
