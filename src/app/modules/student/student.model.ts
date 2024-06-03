@@ -78,6 +78,11 @@ const studentSchema = new Schema<TStudent, StudentModel, TStudentMethods>({
     required: true,
     ref: 'AcademicSemester',
   },
+  academicDepartment: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'AcademicDepartment',
+  },
   guardian: {
     type: guardianSchema,
     required: true,
